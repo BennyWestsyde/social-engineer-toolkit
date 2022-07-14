@@ -1,0 +1,2 @@
+ERROR: 2022-07-12 14:15:23.919747: name 'body' is not defined
+ERROR: 2022-07-12 14:58:53.412134: setprompt() missing 1 required positional argument: 'text'

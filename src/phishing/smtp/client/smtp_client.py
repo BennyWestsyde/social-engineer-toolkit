@@ -31,7 +31,7 @@ import email.encoders as Encoders
 
 # DEFINE SENDMAIL CONFIG
 sendmail = 0
-sendmail_file = open("/etc/setoolkit/set.config", "r").readlines()
+sendmail_file = open("/opt/setoolkit/set.config", "r").readlines()
 
 from src.core.setcore import *
 
@@ -424,7 +424,7 @@ def mail(to, subject, text, attach, prioflag1, prioflag2):
             except Exception as e:
                 print(str(e))
                 try:
-                    mailServer.login(provideremail, pwd)
+                    mailServer.login(provideruser, pwd)
                     thread.start_new_thread(mailServer.sendmail(
                         from_address, to, io.getvalue()))
                 except Exception as e:

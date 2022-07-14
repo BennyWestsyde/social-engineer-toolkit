@@ -19,7 +19,7 @@ except ImportError:
 operating_system = check_os()
 definepath = os.getcwd()
 
-sys.path.append("/etc/setoolkit")
+sys.path.append("/opt/setoolkit")
 from set_config import USER_AGENT_STRING as user_agent
 from set_config import WEB_PORT as web_port
 from set_config import JAVA_ID_PARAM as java_id

@@ -27,7 +27,7 @@ credentials, you will need a site for it to redirect.
 
 You can configure this option under:
 
-      /etc/setoolkit/set.config
+      /opt/setoolkit/set.config
 
 Edit this file, and change HARVESTER_REDIRECT and
 HARVESTER_URL to the sites you want to redirect to

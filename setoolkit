@@ -35,33 +35,33 @@ if os.path.isfile("setoolkit"):
     pass
 
 # check where we are and load default directory
-elif os.path.isdir("/usr/share/setoolkit"):
+elif os.path.isdir("/Users/Shared/setoolkit"):
     if not os.path.isfile("setoolkit"):
-        os.chdir("/usr/share/setoolkit")
-    sys.path.append("/usr/share/setoolkit")
+        os.chdir("/Users/Shared/setoolkit")
+    sys.path.append("/Users/Shared/setoolkit")
 
 # check where we are and load default directory
-elif os.path.isdir("/usr/share/set"):
+elif os.path.isdir("/Users/Shared/set"):
     if not os.path.isfile("setoolkit"):
-        os.chdir("/usr/share/set")
-        sys.path.append("/usr/share/set")
+        os.chdir("/Users/Shared/set")
+        sys.path.append("/Users/Shared/set")
 
-# make sure the config file is located in /etc/setoolkit
-if not os.path.isdir("/etc/setoolkit/"):
-    os.makedirs("/etc/setoolkit/")
-    shutil.copyfile("src/core/config.baseline", "/etc/setoolkit/set.config")
+# make sure the config file is located in /opt/setoolkit
+if not os.path.isdir("/opt/setoolkit/"):
+    os.makedirs("/opt/setoolkit/")
+    shutil.copyfile("src/core/config.baseline", "/opt/setoolkit/set.config")
 
-if not os.path.isfile("/etc/setoolkit/set.config"):
-    shutil.copyfile("src/core/config.baseline", "/etc/setoolkit/set.config")
+if not os.path.isfile("/opt/setoolkit/set.config"):
+    shutil.copyfile("src/core/config.baseline", "/opt/setoolkit/set.config")
 
 # here we check to ensure we have the latest version
-with open("/etc/setoolkit/set.config") as fileopen:
+with open("/opt/setoolkit/set.config") as fileopen:
     data = fileopen.read()
 
 if "CONFIG_VERSION=7.7.9" not in data:
-    print("[*] Overwriting old config for updates to SET. Backing up your old one in /etc/setoolkit/")
-    shutil.move("/etc/setoolkit/set.config", "/etc/setoolkit/set.config.bak")
-    shutil.copyfile("src/core/config.baseline", "/etc/setoolkit/set.config")
+    print("[*] Overwriting old config for updates to SET. Backing up your old one in /opt/setoolkit/")
+    shutil.move("/opt/setoolkit/set.config", "/opt/setoolkit/set.config.bak")
+    shutil.copyfile("src/core/config.baseline", "/opt/setoolkit/set.config")
 
 # import after config checks have been properly created
 from src.core.menu import text
@@ -151,7 +151,7 @@ for root, dirs, files in os.walk(core.userconfigpath):
             pass
 
 # if there isn't a set_config.py file yet, create one
-if not os.path.isfile("/etc/setoolkit/set_config.py"):
+if not os.path.isfile("/opt/setoolkit/set_config.py"):
     update_config()
 
 define_version = core.get_version()

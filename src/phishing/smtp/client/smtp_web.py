@@ -58,7 +58,7 @@ definepath = os.getcwd()
 # DEFINE SENDMAIL CONFIG and WEB ATTACK
 sendmail = 0
 
-sendmail_file = open("/etc/setoolkit/set.config", "r").readlines()
+sendmail_file = open("/opt/setoolkit/set.config", "r").readlines()
 for line in sendmail_file:
     # strip carriage returns
     line = line.rstrip()
@@ -360,7 +360,8 @@ if option1 != "99":
             # Ask for a username and password if we aren't using sendmail
             provideruser = input(
                 setprompt(["1"], "Username for open-relay [blank]"))
-            pwd = getpass.getpass("Password for open-relay [blank]: ")
+            pwd = input(
+                setprompt(["1"],"Password for open-relay [blank]: "))
 
         if sendmail == 0:
             smtp = input(setprompt(
@@ -460,8 +461,8 @@ def mail(to, subject, prioflag1, prioflag2, text):
         # try logging in with base64 encoding here
         import base64
         try:
-            mailServer.docmd("AUTH LOGIN", base64.b64encode(provideruser.encode()))
-            mailServer.docmd(base64.b64encode(pwd.encode()), "")
+            mailServer.docmd("AUTH LOGIN", base64.b64encode(provideruser.encode('utf-8')))
+            mailServer.docmd(base64.b64encode(pwd.encode('utf-8')), b"")
 
         # except exceptions and print incorrect password
         except Exception as e:

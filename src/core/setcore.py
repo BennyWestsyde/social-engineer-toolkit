@@ -61,7 +61,7 @@ def definepath():
         if os.path.isfile("setoolkit"):
             return os.getcwd()
         else:
-            return "/usr/share/setoolkit/"
+            return "/Users/Shared/setoolkit/"
 
     else:
         return os.getcwd()
@@ -397,9 +397,9 @@ def meta_path():
                 trigger = 1
 
         # Kali linux bleeding edge should return this in order to work
-        if os.path.isfile("/usr/share/metasploit-framework/msfconsole"):
+        if os.path.isfile("/Users/Shared/metasploit-framework/msfconsole"):
             if trigger == 0:
-                msf_path = "/usr/share/metasploit-framework/"
+                msf_path = "/Users/Shared/metasploit-framework/"
                 trigger = 1
 
         # if we didn't find anything
@@ -407,7 +407,7 @@ def meta_path():
             print_error(
                 "Metasploit path not found. These payloads will be disabled.")
             print_error(
-                "Please configure Metasploit's path in the /etc/setoolkit/set.config file.")
+                "Please configure Metasploit's path in the /opt/setoolkit/set.config file.")
             msf_path = False
 
     except Exception as e:
@@ -426,7 +426,7 @@ def meta_path():
 
 def meta_database():
     # DEFINE METASPLOIT PATH
-    meta_path = open("/etc/setoolkit/set.config", "r").readlines()
+    meta_path = open("/opt/setoolkit/set.config", "r").readlines()
     for line in meta_path:
         line = line.rstrip()
         match = re.search("METASPLOIT_DATABASE=", line)
@@ -803,7 +803,7 @@ def log(error):
 
 def upx(path_to_file):
     # open the set_config
-    fileopen = open("/etc/setoolkit/set.config", "r")
+    fileopen = open("/opt/setoolkit/set.config", "r")
     for line in fileopen:
         line = line.rstrip()
         match = re.search("UPX_PATH=", line)
@@ -1205,7 +1205,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
 def set_check():
-    fileopen = open("/etc/setoolkit/set.config", "r")
+    fileopen = open("/opt/setoolkit/set.config", "r")
     for line in fileopen:
         match = re.search("SET_INTERACTIVE_SHELL=OFF", line)
         # if we turned it off then we return a true else return false
@@ -1375,7 +1375,7 @@ def kill_proc(port, flag):
 
 # check the config file and return value
 def check_config(param):
-    fileopen = open("/etc/setoolkit/set.config", "r")
+    fileopen = open("/opt/setoolkit/set.config", "r")
     for line in fileopen:
         line = line.rstrip()
         # print line

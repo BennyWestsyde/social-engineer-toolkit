@@ -34,7 +34,7 @@ if stage_encoding == "off":
 else:
     stage_encoding = "true"
 
-configfile = open("/etc/setoolkit/set.config", "r").readlines()
+configfile = open("/opt/setoolkit/set.config", "r").readlines()
 
 # check the metasploit path
 msf_path = meta_path()
@@ -80,7 +80,7 @@ if os.path.isfile(userconfigpath + "payloadgen"):
 # grab ipaddr if it hasn't been identified yet
 #
 if check_options("IPADDR=") == False:
-    fileopen = open("/etc/setoolkit/set.config", "r")
+    fileopen = open("/opt/setoolkit/set.config", "r")
     data = fileopen.read()
     match = re.search("AUTO_DETECT=ON", data)
     if match:

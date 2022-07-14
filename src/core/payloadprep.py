@@ -17,7 +17,7 @@ sys.path.append(definepath)
 operating_system = check_os()
 
 # check the config file
-fileopen = open("/etc/setoolkit/set.config", "r")
+fileopen = open("/opt/setoolkit/set.config", "r")
 for line in fileopen:
     line = line.rstrip()
     # define if we use upx encoding or not

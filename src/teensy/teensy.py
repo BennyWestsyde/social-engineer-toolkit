@@ -37,7 +37,7 @@ definepath = os.getcwd()
 # define if use apache or not
 apache = False
 # open set_config here
-with open("/etc/setoolkit/set.config") as fileopen:
+with open("/opt/setoolkit/set.config") as fileopen:
     apache_check = fileopen.readlines()
 # loop this guy to search for the APACHE_SERVER config variable
 for line in apache_check:

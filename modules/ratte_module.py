@@ -133,7 +133,7 @@ def java_applet_attack_tw(website, port, directory, ipaddr):
 def ratte_listener_start(port):
     # launch ratteserver    using ../ cause of reports/ subdir
     # subprocess.Popen("%s/src/set_payloads/ratte/ratteserver %d" % (os.getcwd(),port), shell=True).wait()
-    subprocess.Popen("../src/payloads/ratte/ratteserver %d" % port, shell=True).wait()
+    subprocess.Popen("src/payloads/ratte/ratteserver %d" % port, shell=True).wait()
 
 
 def prepare_ratte(ipaddr, ratteport, persistent, customexe):

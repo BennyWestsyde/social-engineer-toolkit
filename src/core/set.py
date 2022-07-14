@@ -273,7 +273,7 @@ try:
                     # pull ip address
                     if choice3 != "-1":
                         fileopen = open(
-                            "/etc/setoolkit/set.config", "r").readlines()
+                            "/opt/setoolkit/set.config", "r").readlines()
                         for line in fileopen:
                             line = line.rstrip()
                             match = re.search("AUTO_DETECT=ON", line)
@@ -1051,7 +1051,7 @@ this is how networking works.
                 airbase_path = ""
                 dnsspoof_path = ""
                 # need to pull the SET config file
-                fileopen = open("/etc/setoolkit/set.config", "r")
+                fileopen = open("/opt/setoolkit/set.config", "r")
                 for line in fileopen:
                     line = line.rstrip()
                     match = re.search("AIRBASE_NG_PATH=", line)

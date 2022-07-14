@@ -15,7 +15,7 @@ import time
 import src.core.setcore as core
 from src.core.menu import text
 
-sys.path.append("/etc/setoolkit")
+sys.path.append("/opt/setoolkit")
 from set_config import AIRBASE_NG_PATH as airbase_path
 from set_config import ACCESS_POINT_SSID as access_point
 from set_config import AP_CHANNEL as ap_channel

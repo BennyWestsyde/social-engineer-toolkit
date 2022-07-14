@@ -90,11 +90,11 @@ def value_type(value):
 
 
 def update_config():
-    if not os.path.isdir("/etc/setoolkit"):
-        os.makedirs("/etc/setoolkit")
+    if not os.path.isdir("/opt/setoolkit"):
+        os.makedirs("/opt/setoolkit")
 
-    init_file = open("/etc/setoolkit/set.config", "r")
-    new_config = open("/etc/setoolkit/set_config.py", "w")
+    init_file = open("/opt/setoolkit/set.config", "r")
+    new_config = open("/opt/setoolkit/set_config.py", "w")
     timestamp = str(datetime.datetime.now())
 
     new_config.write("""#!/usr/bin/python\n
@@ -137,7 +137,7 @@ CONFIG_DATE='""" + timestamp + """'\n""")
     init_file.close()
     new_config.close()
     sleep(1)
-    sys.path.append("/etc/setoolkit")
+    sys.path.append("/opt/setoolkit")
     from set_config import CONFIG_DATE as verify
     print_info("New set.config.py file generated on: %s" % timestamp)
     print_info("Verifying configuration update...")

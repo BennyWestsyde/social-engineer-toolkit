@@ -35,7 +35,7 @@ import shutil
 definepath = os.getcwd()
 sys.path.append(definepath)
 from src.core.setcore import *
-sys.path.append("/etc/setoolkit")
+sys.path.append("/opt/setoolkit")
 from set_config import APACHE_SERVER as apache_check
 from set_config import WEBATTACK_EMAIL as webattack_email
 from set_config import TRACK_EMAIL_ADDRESSES as track_email
@@ -102,7 +102,7 @@ except:
 
 # GRAB DEFAULT PORT FOR WEB SERVER AND CHECK FOR COMMAND CENTER
 command_center = "off"
-fileopen = open("/etc/setoolkit/set.config", "r").readlines()
+fileopen = open("/opt/setoolkit/set.config", "r").readlines()
 counter = 0
 for line in fileopen:
     line = line.rstrip()
@@ -147,7 +147,7 @@ if counter == 0:
 ssl_flag = "false"
 self_signed = "false"
 # SEE IF WE WANT TO USE SSL
-fileopen = open("/etc/setoolkit/set.config", "r").readlines()
+fileopen = open("/opt/setoolkit/set.config", "r").readlines()
 for line in fileopen:
     line = line.rstrip()
     match = re.search("WEBATTACK_SSL=ON", line)
